@@ -31,40 +31,33 @@ lio_sam:
   lidarMaxRange: 1000.0                       # default: 1000.0, maximum lidar range to be used
 
   # IMU Settings
-  imuAccNoise: 3.9939570888238808e-03
-  imuGyrNoise: 1.5636343949698187e-03
-  imuAccBiasN: 6.4356659353532566e-05
-  imuGyrBiasN: 3.5640318696367613e-05
+  imuAccNoise: 0.0177484
+  imuGyrNoise: 2.145413333e-03
+  imuAccBiasN: 3.41124e-04
+  imuGyrBiasN: 3.55993e-05
   imuGravity: 9.80511
   imuRPYWeight: 0.01
-  imuAccAlignment: [1, 0, 0,
-                    0, 1, 0,
-                    0, 0, 1]
-  imuGyrAlignment: [1, 0, 0,
-                    0, 1, 0,
-                    0, 0, 1]
-  imuMagAlignment: [1, 0, 0,
-                    0, 1, 0,
-                    0, 0, 1]
+  imuAccAlignment: [ 0.999943,  -0.00118174, 0.0106321,
+                     0.00152427, 0.999998,  -0.00139451,
+                    -0.00918431, 0.00136357, 0.999957]
+  imuGyrAlignment: [ 0.999974,   0.00918499, 0.00258342,
+                    -0.0101041,  0.999946,  -0.00349576,
+                    -0.00218411, 0.00629912, 0.999981]
+  imuMagAlignment: [ 0.999798,   0.0200202,  0.00172676,
+                    -0.0123609,  0.999923,  -0.00128566,
+                    -0.00604034, 0.0132715,  0.999894]
 
   # Extrinsics (lidar -> IMU)
 
-  # KITTI
-  # extrinsicTrans: [-78.086759e-01, 3.195559e-01, -7.997231e-01]
-  # extrinsicRot: [9.999976e-01, 7.553071e-04, -2.035826e-03,
-  #                -7.854027e-04, 9.998898e-01, -1.482298e-02,
-  #                2.024406e-03, 1.482454e-02, 9.998881e-01]
-  # extrinsicRPY: [9.999976e-01, 7.553071e-04, -2.035826e-03,
-  #                -7.854027e-04, 9.998898e-01, -1.482298e-02,
-  #                2.024406e-03, 1.482454e-02, 9.998881e-01]
-  # OXTS
-  extrinsicTrans: [20.00e-03, -40.00e-03, -100.00e-03]
-  extrinsicRot: [0, 0, -1,
-                -1, 0, 0,
-                 0, 1, 0]
+  # XSENS
+  extrinsicTrans: [-7.70e-03, 58.26e-03, -86.94e-03]
+  # extrinsicTrans: [-15.75e-03, 56.00e-03, -94.54e-03]
+  extrinsicRot: [0, -1, 0,
+                0, 0, 1,
+                  -1, 0, 0]
   extrinsicRPY: [0, 0, -1,
                 -1, 0, 0,
-                 0, 1, 0]
+                  0, 1, 0]
 
   # LOAM feature threshold
   edgeThreshold: 1.0
@@ -114,7 +107,7 @@ navsat:
   wait_for_datum: false
   delay: 0.0
   magnetic_declination_radians: 0
-  yaw_offset: 0
+  yaw_offset: 0 # -1.5707963
   zero_altitude: true
   broadcast_utm_transform: false
   broadcast_utm_transform_as_parent_frame: false
